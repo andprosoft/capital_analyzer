@@ -9,6 +9,12 @@ the value of your portfolio at each day. Based on this, it can provide
 some interesting insight like your total gain, your share distribution,
 or your personal performance compared to reference indcies.
 
+Documentation
+=============
+
+You can find a documentation with tutorials here: 
+`Documentation at Read the Docs <https://capital-analyzer.readthedocs.io/en/latest/>`_
+
 
 Installation
 ============
