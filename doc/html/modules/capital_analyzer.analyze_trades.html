@@ -1,0 +1,445 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>1.1. capital_analyzer.analyze_trades.py &mdash; Capital Analyzer 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.2. capital_analyzer.download_data.py" href="capital_analyzer.download_data.html" />
+    <link rel="prev" title="1. Module Description" href="../210_module_description.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Capital Analyzer
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../010_introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../020_installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030_tutorial.html">3. Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../190_contact.html">4. Contact</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../210_module_description.html">1. Module Description</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.1. capital_analyzer.analyze_trades.py</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="capital_analyzer.download_data.html">1.2. capital_analyzer.download_data.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="capital_analyzer.my_func.html">1.3. capital_analyzer.my_func.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="capital_analyzer.my_prop.html">1.4. capital_analyzer.my_prop.py</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Capital Analyzer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../210_module_description.html"><span class="section-number">1. </span>Module Description</a> &raquo;</li>
+        
+      <li><span class="section-number">1.1. </span>capital_analyzer.analyze_trades.py</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/modules/capital_analyzer.analyze_trades.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="capital-analyzer-analyze-trades-py">
+<h1><span class="section-number">1.1. </span>capital_analyzer.analyze_trades.py<a class="headerlink" href="#capital-analyzer-analyze-trades-py" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<span class="target" id="module-capital_analyzer.analyze_trades"></span><p>Analyzes and evaluates the traded. The respective html site will be
+updated.</p>
+<dl class="py function">
+<dt id="capital_analyzer.analyze_trades.calculate_best_worst_days">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.analyze_trades.</span></code><code class="sig-name descname"><span class="pre">calculate_best_worst_days</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capital_analyzer.analyze_trades.calculate_best_worst_days" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the best and the worst dates of the selected categories.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="capital_analyzer.analyze_trades.calculate_personal_index">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.analyze_trades.</span></code><code class="sig-name descname"><span class="pre">calculate_personal_index</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capital_analyzer.analyze_trades.calculate_personal_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates a personal performance index for better comparison to other
+indices.</p>
+<p>The total value is not a measure of performance, because it can
+increase or decrease due to trades. Hence, a personal index will be
+calculated, where gains from trades are considered, but not the
+resulting rise or fall of the value.</p>
+<p>To calculate the personal index, the following approach is used:</p>
+<blockquote>
+<div><ul>
+<li><p>The first day, where a trade occured, will be assigned 1000 Points</p></li>
+<li><p>For each following day, the realtive change of the value is calulated
+in the follwoing way:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the start value of the day is the total value of the previous
+day plus the expenses for new trades</p></li>
+<li><p>the end value of the day is the total value</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>With this approach the real performance is measured. The order charges
+will also be accounted for, since they are included in the total expense
+of each trade, but the total value at the end of the day is calculated
+with the amount of shared multiplied by the close value.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="capital_analyzer.analyze_trades.create_chart_personal_index">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.analyze_trades.</span></code><code class="sig-name descname"><span class="pre">create_chart_personal_index</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capital_analyzer.analyze_trades.create_chart_personal_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluates the personal index.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="capital_analyzer.analyze_trades.create_chart_share_evolution">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.analyze_trades.</span></code><code class="sig-name descname"><span class="pre">create_chart_share_evolution</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capital_analyzer.analyze_trades.create_chart_share_evolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fancy documentation.</p>
+<p>Creates the chart where the evolution of each share is shown separately.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="capital_analyzer.analyze_trades.create_chart_share_gain_abs_rel_single">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.analyze_trades.</span></code><code class="sig-name descname"><span class="pre">create_chart_share_gain_abs_rel_single</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capital_analyzer.analyze_trades.create_chart_share_gain_abs_rel_single" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the absolute and relative gain of each share.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="capital_analyzer.analyze_trades.create_chart_share_rel_amount">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.analyze_trades.</span></code><code class="sig-name descname"><span class="pre">create_chart_share_rel_amount</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capital_analyzer.analyze_trades.create_chart_share_rel_amount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a chart showing the realitve distribution of the shares
+for the given category selection.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="capital_analyzer.analyze_trades.create_index_comparison_bar_chart">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.analyze_trades.</span></code><code class="sig-name descname"><span class="pre">create_index_comparison_bar_chart</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capital_analyzer.analyze_trades.create_index_comparison_bar_chart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shows the performance of the personal index and the reference
+indices in bars.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="capital_analyzer.analyze_trades.evaluate_categories_total_and_reference">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.analyze_trades.</span></code><code class="sig-name descname"><span class="pre">evaluate_categories_total_and_reference</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capital_analyzer.analyze_trades.evaluate_categories_total_and_reference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the total value based on the predefined categories. In this
+plot, also some reference configurations will be ploted to compare
+the performance and make a prediction about the future result.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="capital_analyzer.analyze_trades.get_chart_data">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.analyze_trades.</span></code><code class="sig-name descname"><span class="pre">get_chart_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">share_data_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capital_analyzer.analyze_trades.get_chart_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the chart data of each share.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="capital_analyzer.analyze_trades.get_id_fac_from_split">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.analyze_trades.</span></code><code class="sig-name descname"><span class="pre">get_id_fac_from_split</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">split_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trade_date</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capital_analyzer.analyze_trades.get_id_fac_from_split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fancy documentation.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="capital_analyzer.analyze_trades.get_id_fac_from_split_for_amount">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.analyze_trades.</span></code><code class="sig-name descname"><span class="pre">get_id_fac_from_split_for_amount</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">split_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trade_date</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capital_analyzer.analyze_trades.get_id_fac_from_split_for_amount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fancy documentation.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="capital_analyzer.analyze_trades.get_id_fac_from_split_for_value">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.analyze_trades.</span></code><code class="sig-name descname"><span class="pre">get_id_fac_from_split_for_value</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">split_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_share</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capital_analyzer.analyze_trades.get_id_fac_from_split_for_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fancy documentation.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="capital_analyzer.analyze_trades.get_keys_from_category_list">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.analyze_trades.</span></code><code class="sig-name descname"><span class="pre">get_keys_from_category_list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">share_data_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capital_analyzer.analyze_trades.get_keys_from_category_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all keys, which are associated to a category, which is also listed
+in <code class="docutils literal notranslate"><span class="pre">category_list</span></code>. If <code class="docutils literal notranslate"><span class="pre">category_list</span> <span class="pre">==</span> <span class="pre">&quot;all&quot;</span></code>, then all
+keys will be returned.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="capital_analyzer.analyze_trades.get_reference_evolution">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.analyze_trades.</span></code><code class="sig-name descname"><span class="pre">get_reference_evolution</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_capital</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monthly_payment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_date</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capital_analyzer.analyze_trades.get_reference_evolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates a hypthetical reference evolution of the capital.</p>
+<p>Here, a simple model is applied. At the given date <code class="docutils literal notranslate"><span class="pre">start_date</span></code>, it
+is assumed, that the capital is <code class="docutils literal notranslate"><span class="pre">start_capital</span></code>. Then, each month,
+a payment of <code class="docutils literal notranslate"><span class="pre">monthly_payment</span></code> is made. The capital at the start
+of the year is assumed to rise with <code class="docutils literal notranslate"><span class="pre">interest</span></code>. A typical value would
+be a rise of 7%, in this case <code class="docutils literal notranslate"><span class="pre">interest=1.07</span></code>. This calculation will
+be performed until the last full year before the given date <code class="docutils literal notranslate"><span class="pre">end_date</span></code>.</p>
+<p>Obviously, this is a very simple model and it could be done more detailed.
+But the main goal of this calculation is to show the potential of
+investing. For this, this simple model is sufficient.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="capital_analyzer.analyze_trades.get_text_color">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.analyze_trades.</span></code><code class="sig-name descname"><span class="pre">get_text_color</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">background_color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capital_analyzer.analyze_trades.get_text_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to get the text color to use based on the background color, on
+which  the text should be drawn. Calculate the luminance of the R, G and B
+value of the color and decides then, which color to use. Possible return
+colors are black or white.</p>
+<p>Source: <a class="reference external" href="https://stackoverflow.com/questions/1855884/determine-font-color-based-on-background-color">https://stackoverflow.com/questions/1855884/determine-font-color-based-on-background-color</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>background_color</strong> (<em>Color</em>) – Color of the background, on which the text shall be drawn. Must be
+a list or tuple of the format (R, G, B) or (R, G, B, A). Any
+Color gained from the matplotlib library can be provided. The
+values for R, G, and B must be floats between 0 and 1.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>text_color</strong> – Text color, which looks best on the provided background color.
+Either black or white, depending on the luminance of the
+background color.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Color</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="capital_analyzer.analyze_trades.get_value_reference_evolution">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.analyze_trades.</span></code><code class="sig-name descname"><span class="pre">get_value_reference_evolution</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capital_analyzer.analyze_trades.get_value_reference_evolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the evolution of the reference configuration. Cannot be done
+in :func:<code class="docutils literal notranslate"><span class="pre">evaluate_categories_total_and_reference</span></code>, since the data
+is for the table and has therefore a different end date.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="capital_analyzer.analyze_trades.is_last_day_of_month">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.analyze_trades.</span></code><code class="sig-name descname"><span class="pre">is_last_day_of_month</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capital_analyzer.analyze_trades.is_last_day_of_month" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if a given day is the last day of the month</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="capital_analyzer.analyze_trades.monthdelta">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.analyze_trades.</span></code><code class="sig-name descname"><span class="pre">monthdelta</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capital_analyzer.analyze_trades.monthdelta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Source: <a class="reference external" href="https://riptutorial.com/python/example/8657/subtracting-months-from-a-date-accurately">https://riptutorial.com/python/example/8657/subtracting-months-from-a-date-accurately</a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="capital_analyzer.analyze_trades.run_analyze">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.analyze_trades.</span></code><code class="sig-name descname"><span class="pre">run_analyze</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capital_analyzer.analyze_trades.run_analyze" title="Permalink to this definition">¶</a></dt>
+<dd><p>Analyzes the trades, creates the respective images and updates the html.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="capital_analyzer.analyze_trades.set_size">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.analyze_trades.</span></code><code class="sig-name descname"><span class="pre">set_size</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figwidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axwidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figheight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axheight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.08</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capital_analyzer.analyze_trades.set_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to set the size of a figure, where the desired size of the axis
+provided. For this, the desired width and height of the axis must be
+provided. If the figure has more than one axis, then the first added axis
+will be taken.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function already applies the <code class="xref py py-func docutils literal notranslate"><span class="pre">tight_layout()</span></code>-function
+on the axis. It is not necessary to apply it afterwards since
+it can break the sizes of the axis.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fig</strong> (<em>Figure</em>) – The figure which will be adjusted.</p></li>
+<li><p><strong>w</strong> (<em>float</em>) – Desired width of the (first added) axis (in inches).</p></li>
+<li><p><strong>h</strong> (<em>float</em>) – Desired height of the (first added) axis (in inches).</p></li>
+<li><p><strong>num_iterations</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of iterations that will be performed. Default is 10.
+Increase, if the resulting size of the axis does not match the
+desired size. For most cases, 10 should be enough.</p></li>
+<li><p><strong>pad</strong> (<em>float</em>) – <code class="docutils literal notranslate"><span class="pre">pad</span></code>-Parameter of the <code class="xref py py-func docutils literal notranslate"><span class="pre">tight_layout()</span></code>-function. Default is
+1.08.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="capital_analyzer.analyze_trades.update_html">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.analyze_trades.</span></code><code class="sig-name descname"><span class="pre">update_html</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capital_analyzer.analyze_trades.update_html" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the html file with the current results.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="capital_analyzer.download_data.html" class="btn btn-neutral float-right" title="1.2. capital_analyzer.download_data.py" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../210_module_description.html" class="btn btn-neutral float-left" title="1. Module Description" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Andriy Prots.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

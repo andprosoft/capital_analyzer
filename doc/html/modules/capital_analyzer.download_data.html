@@ -1,0 +1,262 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>1.2. capital_analyzer.download_data.py &mdash; Capital Analyzer 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.3. capital_analyzer.my_func.py" href="capital_analyzer.my_func.html" />
+    <link rel="prev" title="1.1. capital_analyzer.analyze_trades.py" href="capital_analyzer.analyze_trades.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Capital Analyzer
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../010_introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../020_installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030_tutorial.html">3. Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../190_contact.html">4. Contact</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../210_module_description.html">1. Module Description</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="capital_analyzer.analyze_trades.html">1.1. capital_analyzer.analyze_trades.py</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.2. capital_analyzer.download_data.py</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="capital_analyzer.my_func.html">1.3. capital_analyzer.my_func.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="capital_analyzer.my_prop.html">1.4. capital_analyzer.my_prop.py</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Capital Analyzer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../210_module_description.html"><span class="section-number">1. </span>Module Description</a> &raquo;</li>
+        
+      <li><span class="section-number">1.2. </span>capital_analyzer.download_data.py</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/modules/capital_analyzer.download_data.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="capital-analyzer-download-data-py">
+<h1><span class="section-number">1.2. </span>capital_analyzer.download_data.py<a class="headerlink" href="#capital-analyzer-download-data-py" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<span class="target" id="module-capital_analyzer.download_data"></span><p>Downloads and updates the price data of the shares.</p>
+<dl class="py function">
+<dt id="capital_analyzer.download_data.download_data">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.download_data.</span></code><code class="sig-name descname"><span class="pre">download_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">share_data_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capital_analyzer.download_data.download_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloads and updates the price data of the shares.</p>
+<p>If for a given wnk the file is not present, the entire dataset starting
+from the date defined by <code class="docutils literal notranslate"><span class="pre">min_date_global1</span></code> will be downloaded. If the
+file is already present, then the data starting from 14 days ago (or
+from the last entry, whichever is earlier) will be downloaded. This
+ensures, that the data is complete and up to date.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="capital_analyzer.download_data.min_date_global1">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.download_data.</span></code><code class="sig-name descname"><span class="pre">min_date_global1</span></code><em class="property"> <span class="pre">=</span> <span class="pre">datetime.datetime(2017,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">0,</span> <span class="pre">0)</span></em><a class="headerlink" href="#capital_analyzer.download_data.min_date_global1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Startdate of the data, if a file is not existing. Should be before the
+first trade.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="capital_analyzer.download_data.url_raw_ariva">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.download_data.</span></code><code class="sig-name descname"><span class="pre">url_raw_ariva</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'https://www.ariva.de/quote/historic/historic.csv?secu={}&amp;boerse_id={}&amp;clean_split=1&amp;clean_payout=0&amp;clean_bezug=1&amp;min_time={}&amp;max_time={}&amp;trenner=%3B&amp;go=Download'</span></em><a class="headerlink" href="#capital_analyzer.download_data.url_raw_ariva" title="Permalink to this definition">¶</a></dt>
+<dd><p>Url to download the data from ariva.de</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="capital_analyzer.download_data.url_raw_wo">
+<code class="sig-prename descclassname"><span class="pre">capital_analyzer.download_data.</span></code><code class="sig-name descname"><span class="pre">url_raw_wo</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'https://www.wallstreet-online.de/_rpc/json/instrument/history/getHistoricalDataAsCSV?instId={}&amp;marketId={}&amp;fromDate={}&amp;toDate={}&amp;order=time,ASC&amp;csv=true'</span></em><a class="headerlink" href="#capital_analyzer.download_data.url_raw_wo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Url to download the data from wallstreet-online.de</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="capital_analyzer.my_func.html" class="btn btn-neutral float-right" title="1.3. capital_analyzer.my_func.py" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="capital_analyzer.analyze_trades.html" class="btn btn-neutral float-left" title="1.1. capital_analyzer.analyze_trades.py" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Andriy Prots.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,17 +1,5 @@
-Capital Analzer
-###################
-
-Features
-========
-
-The Capital Analzyer can analyze your share portfolio. It will calculate
-the value of your portfolio at each day. Based on this, it can provide
-some interesting insight like your total gain, your share distribution,
-or your personal performance compared to reference indcies.
-
-
 Installation
-============
+############
 
 Installation into Environment
 +++++++++++++++++++++++++++++
@@ -69,3 +57,6 @@ from the Capital Analyzer).
     
 Adjust the path to the ``python`` directory in the ``site.addssitedir()``
 command.
+
+
+    

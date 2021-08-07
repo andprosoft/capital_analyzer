@@ -1,0 +1,112 @@
+html 
+{
+  position: relative;
+  min-height: 100%;
+}
+
+body
+{
+    padding: 0;
+    margin: 0;
+    background: #f0f0f0;
+}
+
+body, .sticky-footer-wrapper 
+{
+   min-height:100vh;
+}
+.page-footer
+{
+    background-color: #002557;
+    color: #fff;
+    padding: 20px 0 15px;
+    margin: 40px 0px 0px 0px;
+}
+
+.footer-copyright
+{
+    color: #fff;
+    padding: 5px 0 5px;
+}
+
+.footer-link
+{
+    color: #fff;
+}
+
+.footer-link:hover
+{
+    color: #cccccc;
+    text-decoration: none;
+}
+
+.jumbotron
+{
+    padding: 1rem 0rem 0rem 0rem;
+    background-color: inherit;
+}
+
+.jumbotron h1
+{
+    font-size: 2.0rem;
+}
+
+.row
+{
+    padding-bottom: 10px;
+}
+
+.col-margin
+{
+    margin: 0px 0px 20px 0px;
+}
+
+.img-single-col
+{
+    margin: 10px 0px;
+    width: 100%;
+}
+
+.img-half-col
+{
+    margin: 10px 0px;
+    width: 50%;
+}
+
+.img-quarter-col
+{
+    margin: 10px 0px;
+    width: 25%;
+}
+
+.figure-caption
+{
+    color: #000;
+}
+
+.fig-center
+{
+    text-align: center;
+}
+
+.zero-padding-horizontal
+{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.table-auto-width
+{
+	width: auto;
+}
+
+.td-day-positive
+{
+	color: darkgreen;
+}
+
+.td-day-negative
+{
+	color: darkred;
+}
+
