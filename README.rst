@@ -1,5 +1,7 @@
-Capital Analzer
+Capital Analyzer
 ###################
+
+Copyright © 2021 Andriy Prots
 
 Features
 ========
