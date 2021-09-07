@@ -131,7 +131,7 @@ def download_data(share_data_dict):
         os.remove(f_path_out_tmp)
         
         # 3.10 sleep for a random period to hide the crawler
-        sleep(np.random.randint(1, 6, 1))
+        sleep(np.random.randint(1, 6))
 
 
 def read_share_data_from_csv(f_path_in):
