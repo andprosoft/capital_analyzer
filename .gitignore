@@ -136,6 +136,6 @@ doc/
 spielwiese*
 
 # ignore directories and files from demo config that will change anyway
-demo_config/
+demo_config/data/
 demo_config/html/images_demo/
 demo_config/html/index_demo.html
