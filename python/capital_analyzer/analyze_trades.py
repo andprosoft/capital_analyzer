@@ -8,6 +8,7 @@ from __future__ import print_function, division
 from datetime import datetime, timedelta
 from dateutil.rrule import rrule, DAILY
 import matplotlib.pyplot as plt
+from matplotlib.dates import date2num
 import numpy as np
 from matplotlib import colors
 import calendar
@@ -407,6 +408,9 @@ def create_chart_share_evolution(config):
         
     key_data_list = sorted(key_data_list, key=lambda x: x[1].lower())
     
+    xmin = np.inf
+    xmax = -np.inf
+    
     # 3. plot evolution for each share
     for key_label in key_data_list:
         key = key_label[0]
@@ -419,6 +423,18 @@ def create_chart_share_evolution(config):
         
         ax.plot(share_amount_dates, share_depot_values[key], 
                 label=displayname, color=color, alpha=1.0)
+        
+        # get dates where value is not none --> value is existing
+        i_date_list = [i for i, v in enumerate(share_depot_values[key]) 
+                       if v is not None]
+        
+        # get xmin and xmax --> use date2num to convert to a mpl compatible
+        # format
+        xmin = min(xmin, date2num(share_amount_dates[i_date_list[0]]))
+        xmax = max(xmax, date2num(share_amount_dates[i_date_list[-1]]))
+    
+    # set limits of x-axis
+    ax.set_xlim([xmin, xmax])
     
     # 4. configure figure
     fig.set_figwidth(FIGWIDTH)
@@ -954,11 +970,17 @@ def evaluate_categories_total_and_reference(config):
     fig = plt.figure()
     ax = fig.gca()
     
+    xmin = np.inf
+    xmax = -np.inf
+    
     # 4.1. print evolution for each category selection
     for i_config, ccl in enumerate(category_compare_list):
         lbl = ccl['displayname']
         color = ccl['color']
         ax.plot(date_list, amount_list[:, i_config], label=lbl, c=color)
+        
+        xmin = min(xmin, date2num(date_list[0]))
+        xmax = max(xmin, date2num(date_list[-1]))
         
     # 4.2. print evolution of reference configuration
     for i_config, reference_config in enumerate(reference_config_list):
@@ -979,12 +1001,16 @@ def evaluate_categories_total_and_reference(config):
         
         ax.plot(date_list, amount_list, label=lbl, c=c)
     
+        xmin = min(xmin, date2num(date_list[0]))
+        xmax = max(xmin, date2num(date_list[-1]))
+        
     # 4.3. layout figure
     ax.grid()
     ax.legend()
     
     ax.set_xlabel("Date")
     ax.set_ylabel("Value ({})".format(currency))
+    ax.set_xlim([xmin, xmax])
     
     fig.set_figwidth(FIGWIDTH)
     fig.set_figheight(FIGHEIGHT)
