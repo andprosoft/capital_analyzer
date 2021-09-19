@@ -30,15 +30,19 @@ def get_f_path_chart_data(wnk):
     return f_path_chart
 
 
-def format_capital(capital, currency="€"):
+def format_capital(capital, currency="€", add_plus_sign=False):
     """
     Formats the capital in a human friendly format.
     
     Inserts a space as the separator for thousands.
     """
     
+    s_format = "{:,.2f}"
+    if(add_plus_sign):
+        s_format = "{:+,.2f}"
+    
     # 1. format value
-    s_capital = "{:,.2f}".format(capital).replace(",", " ")
+    s_capital = s_format.format(capital).replace(",", " ")
      
     # 2. add  currency
     s = "{} {}".format(s_capital, currency)
