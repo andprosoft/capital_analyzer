@@ -846,7 +846,7 @@ def create_chart_share_gain_abs_rel_single(config):
             text_color = get_text_color(color_list[i])
 
         ax.text(
-            x, i, format_capital(value_list_abs[i], currency),
+            x, i, format_capital(value_list_abs[i], currency, add_plus_sign=True),
             color=text_color, ha='left', va='center')
     
     # 4.6. plot share names
