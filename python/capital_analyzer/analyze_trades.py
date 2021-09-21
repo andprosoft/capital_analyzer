@@ -9,6 +9,7 @@ from datetime import datetime, timedelta
 from dateutil.rrule import rrule, DAILY
 import matplotlib.pyplot as plt
 from matplotlib.dates import date2num
+import matplotlib.legend
 import numpy as np
 from matplotlib import colors
 import calendar
@@ -439,8 +440,11 @@ def create_chart_share_evolution(config):
     # 4. configure figure
     fig.set_figwidth(FIGWIDTH)
     fig.set_figheight(FIGHEIGHT)
+    fig.tight_layout()  # initialize renderer
     
-    ax.legend(loc="upper left", ncol=3)
+    # make legend separate, below axis
+    legend = fig.legend(loc="lower center", ncol=3)
+    legend_height = legend.get_window_extent(fig.canvas.renderer).transformed(fig.dpi_scale_trans.inverted()).height
     ax.grid()
     
     # set lower limit of y axis to 0
@@ -477,7 +481,12 @@ def create_chart_share_evolution(config):
     ax.set_yticklabels(yticklabels)
     
     # 6. pad layout of figure and save it
+    fig.set_figwidth(FIGWIDTH)
+    fig.set_figheight(FIGHEIGHT + legend_height)
     fig.tight_layout()
+    
+    # adjust size of axis
+    fig.subplots_adjust(bottom=(legend_height + 0.6) / (FIGHEIGHT + legend_height))
     
     f_path_out = os.path.join(dir_path_out_images, "share_evolution_all.{}")
     fig.savefig(f_path_out.format("png"), dpi=DPI)
