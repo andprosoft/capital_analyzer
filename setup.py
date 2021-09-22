@@ -5,12 +5,14 @@ Setup script for the AP Framework.
 
 import setuptools
 
+from python.capital_analyzer import __release__
+
 with open("README.rst", "r") as f:
     long_description = f.read()
     
 setuptools.setup(
     name="Capital Analyzer",
-    version="1.0.0",
+    version=__release__,
     author="Andriy Prots",
     author_email="andprosoft@gmail.com",
     description="Python Tool to analyze your Investments.",
