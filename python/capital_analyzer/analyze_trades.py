@@ -15,6 +15,7 @@ from matplotlib import colors
 import calendar
 import os
 from bs4 import BeautifulSoup
+import distutils.dir_util
 
 from capital_analyzer.my_func import get_f_path_chart_data, format_capital
 
@@ -393,6 +394,7 @@ def run_analyze(config):
         config_tmp['res_list_share_rel_amount'] = res_list_share_rel_amount
         config_tmp['res_best_worst_days'] = res_best_worst_days
         config_tmp['f_path_template'] = f_path_template
+        config_tmp['dir_path_out_html'] = dir_path_out_html
         config_tmp['f_path_html'] = f_path_html
         config_tmp['dir_name_images'] = dir_name_images
         config_tmp['res_global_share_data'] = res_global_share_data
@@ -1847,6 +1849,14 @@ def update_html(config):
     f_path_template = config['f_path_template']
     f_path_html= config['f_path_html']
     dir_name_images = config['dir_name_images']
+    
+    dir_path_out_html = config['dir_path_out_html']
+    os.makedirs(dir_path_out_html, exist_ok=True)
+    
+    dir_path_template = os.path.join(os.path.dirname(__file__), "html")
+    distutils.dir_util.copy_tree(dir_path_template, dir_path_out_html)
+    # shutil.copytree(dir_path_template, dir_path_out_html)
+    
     
     ###########################################################################
     # 1. read template
