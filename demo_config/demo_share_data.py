@@ -17,10 +17,10 @@ def get_share_data_dict():
             "B"
         ],
         "download_dict": {
-            "data_service": "wo",
+            "data_service": "ariva",
             "download": 1,
-            "instId": "182939",
-            "marketId": "21"
+            "secu": "868856",
+            "boerse_id": "131"
         }
     }
     
@@ -31,10 +31,10 @@ def get_share_data_dict():
             "A"
         ],
         "download_dict": {
-            "data_service": "wo",
+            "data_service": "ariva",
             "download": 1,
-            "instId": "623",
-            "marketId": "21"
+            "secu": "348",
+            "boerse_id": "131"
         }
     }
     
@@ -45,10 +45,10 @@ def get_share_data_dict():
             "A"
         ],
         "download_dict": {
-            "data_service": "wo",
+            "data_service": "ariva",
             "download": 1,
-            "instId": "10301",
-            "marketId": "21"
+            "secu": "415",
+            "boerse_id": "131"
         }
     }
     
@@ -59,10 +59,10 @@ def get_share_data_dict():
             "B"
         ],
         "download_dict": {
-            "data_service": "wo",
+            "data_service": "ariva",
             "download": 1,
-            "instId": "4872943",
-            "marketId": "21"
+            "secu": "101594755",
+            "boerse_id": "131"
         }
     }
     
@@ -76,7 +76,7 @@ def get_share_data_dict():
             "data_service": "ariva",
             "download": 1,
             "secu": "111697700",
-            "boerse_id": "190"
+            "boerse_id": "163"
         }
     }
     
@@ -101,10 +101,10 @@ def get_share_data_dict():
             "X"
         ],
         "download_dict": {
-            "data_service": "wo",
+            "data_service": "ariva",
             "download": 1,
-            "instId": "461947",
-            "marketId": "41"
+            "list": "sp500",
+            "boerse_id": "173"
         }
     }
     
@@ -115,10 +115,10 @@ def get_share_data_dict():
             "X"
         ],
         "download_dict": {
-            "data_service": "wo",
+            "data_service": "ariva",
             "download": 1,
-            "instId": "18279",
-            "marketId": "1"
+            "secu": "290",
+            "boerse_id": "12"
         }
     }
     
@@ -129,10 +129,10 @@ def get_share_data_dict():
             "X"
         ],
         "download_dict": {
-            "data_service": "wo",
+            "data_service": "ariva",
             "download": 1,
-            "instId": "118621",
-            "marketId": "9"
+            "secu": "462",
+            "boerse_id": "72"
         }
     }
     
@@ -143,10 +143,10 @@ def get_share_data_dict():
             "X"
         ],
         "download_dict": {
-            "data_service": "wo",
+            "data_service": "ariva",
             "download": 1,
-            "instId": "121760",
-            "marketId": "41"
+            "list": "dow30",
+            "boerse_id": "71"
         }
     }
     
@@ -157,10 +157,10 @@ def get_share_data_dict():
             "X"
         ],
         "download_dict": {
-            "data_service": "wo",
+            "data_service": "ariva",
             "download": 1,
-            "instId": "172905",
-            "marketId": "9"
+            "list": "nasdaq",
+            "boerse_id": "72"
         }
     }
     
@@ -171,10 +171,10 @@ def get_share_data_dict():
             "A"
         ],
         "download_dict": {
-            "data_service": "wo",
+            "data_service": "ariva",
             "download": 1,
-            "instId": "1169",
-            "marketId": "21"
+            "secu": "397",
+            "boerse_id": "131"
         }
     }
     
@@ -185,10 +185,10 @@ def get_share_data_dict():
             "A"
         ],
         "download_dict": {
-            "data_service": "wo",
+            "data_service": "ariva",
             "download": 1,
-            "instId": "3943",
-            "marketId": "21"
+            "secu": "1446",
+            "boerse_id": "131"
         }
     }
     
@@ -199,10 +199,10 @@ def get_share_data_dict():
             "A"
         ],
         "download_dict": {
-            "data_service": "wo",
+            "data_service": "ariva",
             "download": 1,
-            "instId": "695",
-            "marketId": "21"
+            "secu": "472",
+            "boerse_id": "131"
         }
     }
     
@@ -213,13 +213,12 @@ def get_share_data_dict():
             "A"
         ],
         "download_dict": {
-            "data_service": "wo",
+            "data_service": "ariva",
             "download": 1,
-            "instId": "586",
-            "marketId": "21"
+            "secu": "292",
+            "boerse_id": "131"
         }
     }
-    
     
     return share_data_dict
 

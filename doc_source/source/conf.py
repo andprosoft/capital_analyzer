@@ -59,7 +59,7 @@ os.environ['PATH'] = path
 # -- Project information -----------------------------------------------------
 
 project = 'Capital Analyzer'
-copyright = '2021, Andriy Prots'
+copyright = '2022, Andriy Prots'
 author = 'Andriy Prots'
 
 # The short X.Y version.

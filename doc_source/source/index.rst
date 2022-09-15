@@ -10,6 +10,7 @@ User Guide
     :numbered:
     
     010_introduction.rst
+    015_changelog.rst
     020_installation.rst
     030_tutorial.rst
     190_contact.rst
