@@ -10,7 +10,7 @@ Version 1.1.0
       data can only be downloaded for users, that log in into their account.
       You can use Ariva instead.
       
-    - Ariva has for some indices different php paramters. They are supported
+    - Ariva has for some indices different php parameters. They are supported
       now.
       
     - The html-template file will be updated automatically.
@@ -18,7 +18,7 @@ Version 1.1.0
 **New Features**
     
     - Global data table. This table shows an overview of the shares,
-      with the current number of shares, their value, amout spent and
+      with the current number of shares, their value, amount spent and
       revenue as well as dividends.
 
 
