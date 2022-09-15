@@ -1,6 +1,6 @@
 # History of changes
 
-## Version 1.1.0
+## Version 1.1.0 (2022-09-15)
 
 ### Changes
 
