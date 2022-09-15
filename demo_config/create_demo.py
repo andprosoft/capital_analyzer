@@ -8,8 +8,8 @@ Created on Wed Jul 21 23:14:37 2021
 from datetime import datetime
 from dateutil.rrule import rrule, DAILY
 
-from share_data import get_share_data_dict
-from analyze_trades import get_chart_data
+from demo_share_data import get_share_data_dict
+from capital_analyzer.analyze_trades import get_chart_data
 
 def create_demo(f_path_out):
     """
@@ -174,11 +174,14 @@ def create_demo(f_path_out):
 
     lines.append("    return list_trades")
     
-    #lines.append("")
-    #lines.append("")
-    #lines.append("")
-    #lines.append("")
-    #lines.append("")
+    lines.append("")
+    lines.append("")
+    lines.append("def get_dividends():")
+    lines.append("    ")
+    lines.append("    # dividends")
+    lines.append("    list_dividends = []")
+    lines.append("    ")
+    lines.append("    return list_dividends")
                  
     
     for i_line, line in enumerate(lines):

@@ -5,9 +5,6 @@ Main File to run the analysis.
 
 from datetime import datetime
 
-import site
-site.addsitedir("../python")
-
 from capital_analyzer.analyze_trades import run_analyze
 
 from demo_trades import get_trades, get_dividends
