@@ -219,6 +219,24 @@ using the categories that were defined for the personal index.
     
     Best and Worst Days.
     
+    
+Global Share Data
++++++++++++++++++
+
+In this table, the global data of each share can be seen. This includes
+the total amount of shares currently in possesion, the total amount
+of expenses and revenues as well as dividends. Furthermore, the
+current total value of the shares is shown. Finally, the total
+performance is given.
+
+
+.. figure:: ./images/introduction/1600_global_share_data.png
+    :width: 100%
+    :alt: Global Share Data.
+    :align: center
+    
+    Global Share Data.
+    
 
 
 
