@@ -1,7 +1,7 @@
 Capital Analyzer
 ###################
 
-Copyright © 2021 Andriy Prots
+Copyright © 2022 Andriy Prots
 
 Features
 ========

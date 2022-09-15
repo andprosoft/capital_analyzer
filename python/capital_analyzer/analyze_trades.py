@@ -8,11 +8,14 @@ from __future__ import print_function, division
 from datetime import datetime, timedelta
 from dateutil.rrule import rrule, DAILY
 import matplotlib.pyplot as plt
+from matplotlib.dates import date2num
+import matplotlib.legend
 import numpy as np
 from matplotlib import colors
 import calendar
 import os
 from bs4 import BeautifulSoup
+import distutils.dir_util
 
 from capital_analyzer.my_func import get_f_path_chart_data, format_capital
 
@@ -65,9 +68,11 @@ def run_analyze(config):
     show_chart_share_rel_amount = False
     chart_share_gain_abs_rel = False
     
-    show_chart_personal_index = True
+    show_chart_personal_index = False
     
-    is_calculate_best_worst_days = True
+    is_calculate_best_worst_days = False
+    
+    is_calculate_global_share_data = True
     
     is_update_html = True
     is_update_html = do_all == True
@@ -363,6 +368,21 @@ def run_analyze(config):
         res_best_worst_days = calculate_best_worst_days(config_tmp)
     else:
         res_best_worst_days = []
+        
+    if(do_all or is_calculate_global_share_data):
+        config_tmp = {}
+        config_tmp['share_data_dict'] = share_data_dict
+        config_tmp['list_trades'] = list_trades
+        config_tmp['list_dividends'] = list_dividends
+        config_tmp['share_depot_values'] = share_depot_values
+        config_tmp['last_date_it'] = last_date_it
+        config_tmp['split_list'] = split_list
+        config_tmp['share_amount_data_list'] = share_amount_data_list
+        
+        res_global_share_data = calculate_global_share_data(config_tmp)
+        
+    else:
+        res_global_share_data = {}
     
     if(is_update_html):
         config_tmp = {}
@@ -374,8 +394,10 @@ def run_analyze(config):
         config_tmp['res_list_share_rel_amount'] = res_list_share_rel_amount
         config_tmp['res_best_worst_days'] = res_best_worst_days
         config_tmp['f_path_template'] = f_path_template
+        config_tmp['dir_path_out_html'] = dir_path_out_html
         config_tmp['f_path_html'] = f_path_html
         config_tmp['dir_name_images'] = dir_name_images
+        config_tmp['res_global_share_data'] = res_global_share_data
         
         update_html(config_tmp)
     
@@ -407,6 +429,9 @@ def create_chart_share_evolution(config):
         
     key_data_list = sorted(key_data_list, key=lambda x: x[1].lower())
     
+    xmin = np.inf
+    xmax = -np.inf
+    
     # 3. plot evolution for each share
     for key_label in key_data_list:
         key = key_label[0]
@@ -419,12 +444,27 @@ def create_chart_share_evolution(config):
         
         ax.plot(share_amount_dates, share_depot_values[key], 
                 label=displayname, color=color, alpha=1.0)
+        
+        # get dates where value is not none --> value is existing
+        i_date_list = [i for i, v in enumerate(share_depot_values[key]) 
+                       if v is not None]
+        
+        # get xmin and xmax --> use date2num to convert to a mpl compatible
+        # format
+        xmin = min(xmin, date2num(share_amount_dates[i_date_list[0]]))
+        xmax = max(xmax, date2num(share_amount_dates[i_date_list[-1]]))
+    
+    # set limits of x-axis
+    ax.set_xlim([xmin, xmax])
     
     # 4. configure figure
     fig.set_figwidth(FIGWIDTH)
     fig.set_figheight(FIGHEIGHT)
+    fig.tight_layout()  # initialize renderer
     
-    ax.legend(loc="upper left", ncol=3)
+    # make legend separate, below axis
+    legend = fig.legend(loc="lower center", ncol=3)
+    legend_height = legend.get_window_extent(fig.canvas.renderer).transformed(fig.dpi_scale_trans.inverted()).height
     ax.grid()
     
     # set lower limit of y axis to 0
@@ -461,7 +501,12 @@ def create_chart_share_evolution(config):
     ax.set_yticklabels(yticklabels)
     
     # 6. pad layout of figure and save it
+    fig.set_figwidth(FIGWIDTH)
+    fig.set_figheight(FIGHEIGHT + legend_height)
     fig.tight_layout()
+    
+    # adjust size of axis
+    fig.subplots_adjust(bottom=(legend_height + 0.6) / (FIGHEIGHT + legend_height))
     
     f_path_out = os.path.join(dir_path_out_images, "share_evolution_all.{}")
     fig.savefig(f_path_out.format("png"), dpi=DPI)
@@ -830,7 +875,7 @@ def create_chart_share_gain_abs_rel_single(config):
             text_color = get_text_color(color_list[i])
 
         ax.text(
-            x, i, format_capital(value_list_abs[i], currency),
+            x, i, format_capital(value_list_abs[i], currency, add_plus_sign=True),
             color=text_color, ha='left', va='center')
     
     # 4.6. plot share names
@@ -954,11 +999,17 @@ def evaluate_categories_total_and_reference(config):
     fig = plt.figure()
     ax = fig.gca()
     
+    xmin = np.inf
+    xmax = -np.inf
+    
     # 4.1. print evolution for each category selection
     for i_config, ccl in enumerate(category_compare_list):
         lbl = ccl['displayname']
         color = ccl['color']
         ax.plot(date_list, amount_list[:, i_config], label=lbl, c=color)
+        
+        xmin = min(xmin, date2num(date_list[0]))
+        xmax = max(xmin, date2num(date_list[-1]))
         
     # 4.2. print evolution of reference configuration
     for i_config, reference_config in enumerate(reference_config_list):
@@ -979,12 +1030,16 @@ def evaluate_categories_total_and_reference(config):
         
         ax.plot(date_list, amount_list, label=lbl, c=c)
     
+        xmin = min(xmin, date2num(date_list[0]))
+        xmax = max(xmin, date2num(date_list[-1]))
+        
     # 4.3. layout figure
     ax.grid()
     ax.legend()
     
     ax.set_xlabel("Date")
     ax.set_ylabel("Value ({})".format(currency))
+    ax.set_xlim([xmin, xmax])
     
     fig.set_figwidth(FIGWIDTH)
     fig.set_figheight(FIGHEIGHT)
@@ -1585,6 +1640,72 @@ def calculate_best_worst_days(config):
     # 2. return results
     return res_list
 
+def calculate_global_share_data(config_dict):
+    """
+    Fancy documentation.
+    """
+    
+    share_data_dict = config_dict['share_data_dict']
+    list_trades = config_dict['list_trades']
+    list_dividends = config_dict['list_dividends']
+    share_depot_values = config_dict['share_depot_values']
+    #last_date_it = config_dict['last_date_it']
+    split_list = config_dict['split_list']
+    share_amount_data_list = config_dict['share_amount_data_list']
+    
+    def get_default_dict(key):
+        """
+        
+        """
+        
+        default_dict = {}
+        
+        default_dict['displayname'] = share_data_dict[key]['displayname']
+        default_dict['total_income'] = 0
+        default_dict['total_expenses'] = 0
+        default_dict['total_dividends'] = 0
+        default_dict['total_value'] = 0
+        
+        return default_dict
+    
+    res_dict = {}
+    
+    for trade in list_trades + list_dividends:
+        # trade_date = trade[0]
+        wkn = trade[1]
+        # amount = trade[2]
+        expenses = trade[3]
+        
+        wkn_new, fac = get_id_fac_from_split_for_value(split_list, wkn)
+        
+        share_dict = res_dict.get(wkn_new, get_default_dict(wkn_new))
+        
+        if(trade in list_dividends):
+            share_dict['total_dividends'] -= expenses
+            
+        else:
+            if(expenses > 0):
+                share_dict['total_expenses'] += expenses
+            
+            else:
+                share_dict['total_income'] -= expenses
+        
+        
+        res_dict[wkn_new] = share_dict
+        
+    for key in res_dict:
+        share_dict = res_dict[key]
+        
+        total_val = share_depot_values[key][-1]
+        if(total_val is not None):
+            share_dict['total_value'] = total_val
+            
+        amount = share_amount_data_list[-1][key]
+        share_dict['amount'] = amount
+        
+    return res_dict
+
+
 def get_text_color(background_color, with_alpha=True):
     """
     Function to get the text color to use based on the background color, on
@@ -1728,6 +1849,14 @@ def update_html(config):
     f_path_template = config['f_path_template']
     f_path_html= config['f_path_html']
     dir_name_images = config['dir_name_images']
+    
+    dir_path_out_html = config['dir_path_out_html']
+    os.makedirs(dir_path_out_html, exist_ok=True)
+    
+    dir_path_template = os.path.join(os.path.dirname(__file__), "html")
+    distutils.dir_util.copy_tree(dir_path_template, dir_path_out_html)
+    # shutil.copytree(dir_path_template, dir_path_out_html)
+    
     
     ###########################################################################
     # 1. read template
@@ -2022,7 +2151,7 @@ def update_html(config):
     for rbwd in res_best_worst_days:
         
         # 5.1.1 read results
-        config = rbwd['configuration']
+        config_rbwd = rbwd['configuration']
         date_performance_list = rbwd['date_performance_list']
         
         # 5.1.2. create di element
@@ -2032,7 +2161,7 @@ def update_html(config):
         
         # 5.1.3. create caption
         h4 = root_template.new_tag("h4")
-        h4.string = config['displayname']
+        h4.string = config_rbwd['displayname']
         div.append(h4)
         
         # 5.1.4. create table
@@ -2144,6 +2273,106 @@ def update_html(config):
                 'td', attrs={'class': 'text-right td-day-negative'})
             td.string = s_performance
             tr.append(td)
+    
+    ###########################################################################
+    # 6. update global share data
+    res_global_share_data = config['res_global_share_data']
+    div_global_share_data = root_template.find(
+        "div", attrs = {"id": "global_share_data_43928402"})
+    
+    table = root_template.new_tag(
+        'table', attrs={'class': 'table table-striped table-auto-width'})
+    div_global_share_data.append(table)
+    
+    thead = root_template.new_tag('thead')
+    table.append(thead)
+    
+    tr = root_template.new_tag('tr')
+    thead.append(tr)
+    
+    # first column shows the rank of the day
+    td = root_template.new_tag('td', attrs={'scope': 'col'})
+    td.string = "Share"
+    tr.append(td)
+    
+    # second column shows the date
+    td = root_template.new_tag('td', attrs={'scope': 'col', 'class': 'text-right'})
+    td.string = "Amount"
+    tr.append(td)
+    
+    # second column shows the date
+    td = root_template.new_tag('td', attrs={'scope': 'col', 'class': 'text-right'})
+    td.string = "Total Expenses"
+    tr.append(td)
+    
+    # second column shows the date
+    td = root_template.new_tag('td', attrs={'scope': 'col', 'class': 'text-right'})
+    td.string = "Total Income"
+    tr.append(td)
+    
+    # second column shows the date
+    td = root_template.new_tag('td', attrs={'scope': 'col', 'class': 'text-right'})
+    td.string = "Total Dividends"
+    tr.append(td)
+    
+    # second column shows the date
+    td = root_template.new_tag('td', attrs={'scope': 'col', 'class': 'text-right'})
+    td.string = "Total Value"
+    tr.append(td)
+    
+    td = root_template.new_tag('td', attrs={'scope': 'col', 'class': 'text-right'})
+    td.string = "Total Performance"
+    tr.append(td)
+    
+    tbody = root_template.new_tag('tbody')
+    table.append(tbody)
+    
+    for key in res_global_share_data:
+        share_dict = res_global_share_data[key]
+        
+        displayname = share_dict['displayname']
+        amount = share_dict['amount']
+        total_income = share_dict['total_income']
+        total_expenses = share_dict['total_expenses']
+        total_dividends = share_dict['total_dividends']
+        total_value = share_dict['total_value']
+        
+        if(total_expenses > 1e-5):
+            total_performance = (
+                (total_income + total_dividends + total_value) / (total_expenses)
+                - 1)
+        else:
+            total_performance = -9999
+        
+        s_list = [displayname, 
+                  "{:.8f}".format(amount),
+                  format_capital(total_expenses),
+                  format_capital(total_income),
+                  format_capital(total_dividends),
+                  format_capital(total_value),
+                  ]
+        
+        tr = root_template.new_tag('tr')
+        tbody.append(tr)
+
+        for i_s, s in enumerate(s_list):
+            if(i_s in [0]):
+                td = root_template.new_tag('td')
+            else:
+                td = root_template.new_tag('td', attrs = {'class': 'text-right'})
+            td.string = s
+            tr.append(td)
+            
+        if(total_performance > 0):
+            attrs = {'class': 'text-right td-day-positive'}
+            
+        else:
+            attrs = {'class': 'text-right td-day-negative'}            
+            
+        td = root_template.new_tag('td', attrs=attrs)
+        td.string = "{:+.2f} %".format(total_performance * 100)
+        tr.append(td)
+                  
     
     # 6. prettify document
     s_out = root_template.prettify().encode('UTF-8')

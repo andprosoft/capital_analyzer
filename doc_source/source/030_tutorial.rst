@@ -169,100 +169,107 @@ Add Download Data
 For the evaluation, the historical data must be downloaded first. Therefore,
 the required details must be added.
 
-For now, two sources of historical data are supported: 
-`Wallstreet Online <https://www.wallstreet-online.de/>`_ and 
-`Ariva <https://www.ariva.de/>`_.
+The data must be downloaded from `Ariva <https://www.ariva.de/>`_. 
 
-**Wallstreet Onlinle**: To gather the required data, first open the website
-`https://www.wallstreet-online.de/ <https://www.wallstreet-online.de/>`_. Then,
-go to the site of the respective share.
+.. note::
+    `Wallstreet Online <https://www.wallstreet-online.de/>`_ is not supportet
+    at the moment, since it requires an user authetification to
+    download the data.
 
-.. figure:: ./images/tutorial/2000_wo_search.png
-    :width: 100%
-    :alt: Search Share at Wallstreet Online.
-    :align: center
-    
-    Search Share at Wallstreet Online.
 
-Then, open the historical data by going to Kurse & Analysen --> Kurse, Performance & Rendite.
+.. wo
+    Old stuff
 
-.. figure:: ./images/tutorial/2100_historical_data.png
-    :width: 75%
-    :alt: Find Historical Data.
-    :align: center
-    
-    Find Historical Data.
-    
-Then, select the stock exchange place, at which you usually trade 
-(e.g. ``Tradegate``).
+    **Wallstreet Onlinle**: To gather the required data, first open the website
+    `https://www.wallstreet-online.de/ <https://www.wallstreet-online.de/>`_. Then,
+    go to the site of the respective share.
 
-.. figure:: ./images/tutorial/2200_select_exchange.png
-    :width: 100%
-    :alt: Select Stock Exchange Data.
-    :align: center
-    
-    Select Stock Exchange Data.
-    
-Then, click on ``Export als CSV``. This will download the historical data
-of the current selection. The downloaded .csv file is actually not of 
-importance. Important here is the download link. For this, go to your
-browser menu, and open the Download menu. There, the downloaded file is
-listed. Hover with your mouse over the linke and select ``Copy Link Address``.
+    .. figure:: ./images/tutorial/2000_wo_search.png
+        :width: 100%
+        :alt: Search Share at Wallstreet Online.
+        :align: center
+        
+        Search Share at Wallstreet Online.
 
-.. figure:: ./images/tutorial/2300_copy_link_address.png
-    :width: 100%
-    :alt: Copy Link Address.
-    :align: center
-    
-    Copy Link Address.
-    
-Open your default text editor and paste the link. There, you will
-see the html-link do download the data. The important fields are
-``instId`` and ``marketId``.
+    Then, open the historical data by going to Kurse & Analysen --> Kurse, Performance & Rendite.
 
-.. figure:: ./images/tutorial/2400_extract_data.png
-    :width: 100%
-    :alt: Extract data.
-    :align: center
-    
-    Extract data.
-    
-This information can now be added into the ``share_data_dict`` entry. For this,
-a new dictionary with the key ``download_dict`` will be added.
+    .. figure:: ./images/tutorial/2100_historical_data.png
+        :width: 75%
+        :alt: Find Historical Data.
+        :align: center
+        
+        Find Historical Data.
+        
+    Then, select the stock exchange place, at which you usually trade 
+    (e.g. ``Tradegate``).
 
-.. code:: python
+    .. figure:: ./images/tutorial/2200_select_exchange.png
+        :width: 100%
+        :alt: Select Stock Exchange Data.
+        :align: center
+        
+        Select Stock Exchange Data.
+        
+    Then, click on ``Export als CSV``. This will download the historical data
+    of the current selection. The downloaded .csv file is actually not of 
+    importance. Important here is the download link. For this, go to your
+    browser menu, and open the Download menu. There, the downloaded file is
+    listed. Hover with your mouse over the linke and select ``Copy Link Address``.
 
-    share_data_dict["870747"] = {
-        "displayname": "Microsoft",
-        "color": "b",
-        "category": [
-            "A"
-        ],
-        "download_dict": {
-            "data_service": "wo",
-            "download": 1,
-            "instId": "10301",
-            "marketId": "21"
+    .. figure:: ./images/tutorial/2300_copy_link_address.png
+        :width: 100%
+        :alt: Copy Link Address.
+        :align: center
+        
+        Copy Link Address.
+        
+    Open your default text editor and paste the link. There, you will
+    see the html-link do download the data. The important fields are
+    ``instId`` and ``marketId``.
+
+    .. figure:: ./images/tutorial/2400_extract_data.png
+        :width: 100%
+        :alt: Extract data.
+        :align: center
+        
+        Extract data.
+        
+    This information can now be added into the ``share_data_dict`` entry. For this,
+    a new dictionary with the key ``download_dict`` will be added.
+
+    .. code:: python
+
+        share_data_dict["870747"] = {
+            "displayname": "Microsoft",
+            "color": "b",
+            "category": [
+                "A"
+            ],
+            "download_dict": {
+                "data_service": "ariva",
+                "download": 1,
+                "secu": "415",
+                "boerse_id": "131"
+            }
         }
-    }
+        
 
-It contains four entries. With the entry ``data_service``, the source
-of the data is defined (Wallstreet Online or Ariva). Use ``"wo"`` here to
-set the source to "Wallstreet Online". 
+    It contains four entries. With the entry ``data_service``, the source
+    of the data is defined (only Ariva currently supported). Use ``"ariva"`` here to
+    set the source to "Ariva". 
 
-With the entry ``download``, the 
-download of the data can be enabled (``1``) or disabled (``0``). For example,
-if all shares of a given company are sold, then it is no longer required to
-download the data (as long as the data is present until the day of the last
-sell).
+    With the entry ``download``, the 
+    download of the data can be enabled (``1``) or disabled (``0``). For example,
+    if all shares of a given company are sold, then it is no longer required to
+    download the data (as long as the data is present until the day of the last
+    sell).
 
-The following two entries ``instId`` and ``marketId`` are the ones obtained
-from the download link. Make sure, that these values are pasted as a string!
+    The following two entries ``instId`` and ``marketId`` are the ones obtained
+    from the download link. Make sure, that these values are pasted as a string!
 
-**Ariva**: Sometimes, not all shares are available at Wallstreet Online. 
-Therefore, a second source is supported.
+**Ariva**: 
 
-The steps to perform are similar to the steps for Wallstreet Online. First,
+First,
 go to `https://www.ariva.de/ <https://www.ariva.de/>`_ and open the
 site of the share. Then go to Kurse --> Historische Kurse and select
 the stock exchange.
@@ -295,10 +302,6 @@ are important.
     
     Ariva Download Link.
 
-
-Now, similar to Wallstreet Online, this information
-can be added. For the field ``data_service`` use ``"ariva"``.
-    
 .. code:: python
 
     share_data_dict["870747"] = {
@@ -317,7 +320,25 @@ can be added. For the field ``data_service`` use ``"ariva"``.
 
 
 .. note::
-    You must add the details from only one service, not both.
+    When e.g. downloading the data for an index, the keys can be different.
+    For example they might be ``list`` and ``boerse_id``. You can insert
+    them in similar way:
+    
+    .. code:: python
+
+        share_data_dict["dowjones"] = {
+            "displayname": "Dow Jones",
+            "color": "darkorange",
+            "category": [
+                "X"
+            ],
+            "download_dict": {
+                "data_service": "ariva",
+                "download": 1,
+                "list": "dow30",
+                "boerse_id": "71"
+            }
+        }
     
     
 This process must be repeated for each share to consider. If you buy a new
@@ -1020,12 +1041,13 @@ share_data.py
                 "A"
             ],
             "download_dict": {
-                "data_service": "wo",
+                "data_service": "ariva",
                 "download": 1,
-                "instId": "10301",
-                "marketId": "21"
+                "secu": "415",
+                "boerse_id": "131"
             }
         }
+        
         
         share_data_dict["BTC"] = {
             "displayname": "Bitcoin",
