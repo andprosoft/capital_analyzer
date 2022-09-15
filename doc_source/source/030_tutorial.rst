@@ -246,16 +246,17 @@ The data must be downloaded from `Ariva <https://www.ariva.de/>`_.
                 "A"
             ],
             "download_dict": {
-                "data_service": "wo",
+                "data_service": "ariva",
                 "download": 1,
-                "instId": "10301",
-                "marketId": "21"
+                "secu": "415",
+                "boerse_id": "131"
             }
         }
+        
 
     It contains four entries. With the entry ``data_service``, the source
-    of the data is defined (Wallstreet Online or Ariva). Use ``"wo"`` here to
-    set the source to "Wallstreet Online". 
+    of the data is defined (only Ariva currently supported). Use ``"ariva"`` here to
+    set the source to "Ariva". 
 
     With the entry ``download``, the 
     download of the data can be enabled (``1``) or disabled (``0``). For example,
@@ -301,10 +302,6 @@ are important.
     
     Ariva Download Link.
 
-
-Now, similar to Wallstreet Online, this information
-can be added. For the field ``data_service`` use ``"ariva"``.
-    
 .. code:: python
 
     share_data_dict["870747"] = {
@@ -1044,12 +1041,13 @@ share_data.py
                 "A"
             ],
             "download_dict": {
-                "data_service": "wo",
+                "data_service": "ariva",
                 "download": 1,
-                "instId": "10301",
-                "marketId": "21"
+                "secu": "415",
+                "boerse_id": "131"
             }
         }
+        
         
         share_data_dict["BTC"] = {
             "displayname": "Bitcoin",
