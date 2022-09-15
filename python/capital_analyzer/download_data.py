@@ -17,7 +17,8 @@ url_raw_wo = "https://www.wallstreet-online.de/_rpc/json/instrument/history/getH
 Url to download the data from wallstreet-online.de
 """
 
-url_raw_ariva = "https://www.ariva.de/quote/historic/historic.csv?secu={}&boerse_id={}&clean_split=1&clean_payout=0&clean_bezug=1&min_time={}&max_time={}&trenner=%3B&go=Download"
+#url_raw_ariva = "https://www.ariva.de/quote/historic/historic.csv?secu={}&boerse_id={}&clean_split=1&clean_payout=0&clean_bezug=1&min_time={}&max_time={}&trenner=%3B&go=Download"
+url_raw_ariva = "https://www.ariva.de/quote/historic/historic.csv?{}&clean_split=1&clean_payout=0&clean_bezug=1&min_time={}&max_time={}&trenner=%3B&go=Download"
 """
 Url to download the data from ariva.de
 """
@@ -98,12 +99,21 @@ def download_data(share_data_dict):
         
         # check, which service
         if(download_dict['data_service'] == "ariva"):
-            secu = download_dict['secu']
-            boerse_id = download_dict['boerse_id']
+            s_list = []
+            for key, item in download_dict.items():
+                if(key in ["data_service", "download"]):
+                    continue
+                
+                s_list.append("{}={}".format(key, item))
             
-            url = url_raw_ariva.format(secu, boerse_id, s_min_date, s_max_date)
+            s_params = "&".join(s_list)
+            
+            url = url_raw_ariva.format(s_params, s_min_date, s_max_date)
             read_routine = read_share_data_from_ariva
         elif(download_dict['data_service'] == "wo"):
+            #raise ValueError("Wallstreet Online is not supported anymore! Use ariva istead!")
+            print("Wallstreet Online is not supported anymore! Use ariva istead!")
+            
             instId = download_dict['instId']
             marketId = download_dict['marketId']
             
